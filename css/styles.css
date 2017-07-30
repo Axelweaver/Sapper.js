@@ -1,0 +1,119 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+div.panel.sapper-table {
+    width: 308px;
+    border-width: 6px;
+}
+table.sapper-table {
+    position: relative;
+}
+div.panel.sapper-table > .panel-body {
+    border-left: solid 4px #bbb;
+    border-top: solid 4px #bbb;
+    border-right: solid 4px #fff;
+    border-bottom: solid 4px #fff;
+    padding: 0;
+}
+
+table.sapper-table > tbody > tr > td {
+    padding: 0;
+    line-height: 1;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+table.sapper-table > tbody > tr > td.game-over {
+    padding: 0;
+    padding-top: 42%;
+    min-height: 100%;
+    width: 100%;
+    cursor: initial;
+    background-color: rgba(23, 23, 23, 0.6);
+    color: #fff;
+    font-size: 250%;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    text-align: center;
+}
+table.sapper-table > tbody > tr > td > div.cell-closed {
+    margin-top: 3px;
+    margin-left: 3px;
+    background-color: #f0f0f0;
+    width: 23px;
+    height: 23px;
+    box-shadow: 2px 2px 1px 2px #ccc, -1px 0px 1px 2px #fff;
+}
+table.sapper-table > tbody > tr > td > div.cell-bomb {
+    margin: -2px;
+    width: 32px;
+    height: 32px;
+    font-size: 120%;
+    padding-top: 8px;
+    background-color: #ff5a1a;
+    border: solid 1px #ddd;
+    text-align: center;
+}
+table.sapper-table > tbody > tr > td > div[data-flag] {
+    font-size: 110%;
+    padding: 4px;
+    text-align: center;
+    color: #ff0000;
+}
+div.panel.sapper-table>.panel-heading>.panel-title>span.bombs-count-icon {
+    font-size: 110%;
+    padding-top: 4px;
+    font-weight: bold;
+    color: #ff0000;
+}
+div.panel.sapper-table > .panel-heading > .panel-title > span.bombs-count {
+    font-size: 110%;
+    font-weight: bold;
+    padding-left: 5px;
+}
+div.panel.sapper-table > .panel-heading > .panel-title > span.bombs-refresh {
+    font-size: 120%;
+    font-weight: bold;
+    padding-left: 5px;
+    cursor: pointer;
+}
+div.panel.sapper-table > .panel-heading > .panel-title > span.text-win {
+    font-size: 120%;
+    font-weight: bold;
+    padding-left: 24px;
+    color: limegreen;
+}
+div.panel.sapper-table > .panel-heading > .panel-title > span.text-lose {
+    font-size: 120%;
+    font-weight: bold;
+    padding-left: 24px;
+    color:#ff0000;
+}
+div.panel.sapper-table > .panel-heading > .panel-title > span.timer {
+    padding-left: 20px;
+    font-weight: bold;
+    color: blue;
+}
+
+table.sapper-table > tbody > tr > td > div.cell-number {
+    font-size: 110%;
+    padding-top: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number1 {
+    color: mediumblue;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number2 {
+    color: forestgreen;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number3 {
+    color: #ff0000;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number4 {
+    color:purple;
+}

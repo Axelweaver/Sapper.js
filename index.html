@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Q101.Sapper on JavaScript</title>
+    <meta charset="utf-8" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top white-text-shadow">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">Q101.Sapper</a>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <br><br>
+    <div class="row hidden-xs">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-default btn-block" data-toggle="change-size" data-rows-count="10" data-columns-count="10" data-bomb-count="20">10 Х 10</button>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-default btn-block" data-toggle="change-size" data-rows-count="16" data-columns-count="20" data-bomb-count="50">20 Х 16</button>
+
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-default btn-block" data-toggle="change-size" data-rows-count="24" data-columns-count="30" data-bomb-count="80">30 Х 24</button>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default sapper-table center-block">
+                <div class="panel-heading">
+                    <div class="panel-title"><span class="glyphicon glyphicon-remove-sign bombs-count-icon"></span><span class="bombs-count">20</span><span class="timer"></span><span class="pull-right glyphicon glyphicon-repeat bombs-refresh"></span></div>
+                </div>
+                <table class="table table-bordered sapper-table" data-bomb-count="20" data-rows-count="10" data-columns-count="10"><tbody><tr><td><div class="cell-closed" data-row="0" data-column="0"></div></td><td><div class="cell-closed" data-row="0" data-column="1"></div></td><td><div class="cell-closed" data-row="0" data-column="2"></div></td><td><div class="cell-closed" data-row="0" data-column="3"></div></td><td><div class="cell-closed" data-row="0" data-column="4"></div></td><td><div class="cell-closed" data-row="0" data-column="5"></div></td><td><div class="cell-closed" data-row="0" data-column="6"></div></td><td><div class="cell-closed" data-row="0" data-column="7"></div></td><td><div class="cell-closed" data-row="0" data-column="8"></div></td><td><div class="cell-closed" data-row="0" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="1" data-column="0"></div></td><td><div class="cell-closed" data-row="1" data-column="1"></div></td><td><div class="cell-closed" data-row="1" data-column="2"></div></td><td><div class="cell-closed" data-row="1" data-column="3"></div></td><td><div class="cell-closed" data-row="1" data-column="4"></div></td><td><div class="cell-closed" data-row="1" data-column="5"></div></td><td><div class="cell-closed" data-row="1" data-column="6"></div></td><td><div class="cell-closed" data-row="1" data-column="7"></div></td><td><div class="cell-closed" data-row="1" data-column="8"></div></td><td><div class="cell-closed" data-row="1" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="2" data-column="0"></div></td><td><div class="cell-closed" data-row="2" data-column="1"></div></td><td><div class="cell-closed" data-row="2" data-column="2"></div></td><td><div class="cell-closed" data-row="2" data-column="3"></div></td><td><div class="cell-closed" data-row="2" data-column="4"></div></td><td><div class="cell-closed" data-row="2" data-column="5"></div></td><td><div class="cell-closed" data-row="2" data-column="6"></div></td><td><div class="cell-closed" data-row="2" data-column="7"></div></td><td><div class="cell-closed" data-row="2" data-column="8"></div></td><td><div class="cell-closed" data-row="2" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="3" data-column="0"></div></td><td><div class="cell-closed" data-row="3" data-column="1"></div></td><td><div class="cell-closed" data-row="3" data-column="2"></div></td><td><div class="cell-closed" data-row="3" data-column="3"></div></td><td><div class="cell-closed" data-row="3" data-column="4"></div></td><td><div class="cell-closed" data-row="3" data-column="5"></div></td><td><div class="cell-closed" data-row="3" data-column="6"></div></td><td><div class="cell-closed" data-row="3" data-column="7"></div></td><td><div class="cell-closed" data-row="3" data-column="8"></div></td><td><div class="cell-closed" data-row="3" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="4" data-column="0"></div></td><td><div class="cell-closed" data-row="4" data-column="1"></div></td><td><div class="cell-closed" data-row="4" data-column="2"></div></td><td><div class="cell-closed" data-row="4" data-column="3"></div></td><td><div class="cell-closed" data-row="4" data-column="4"></div></td><td><div class="cell-closed" data-row="4" data-column="5"></div></td><td><div class="cell-closed" data-row="4" data-column="6"></div></td><td><div class="cell-closed" data-row="4" data-column="7"></div></td><td><div class="cell-closed" data-row="4" data-column="8"></div></td><td><div class="cell-closed" data-row="4" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="5" data-column="0"></div></td><td><div class="cell-closed" data-row="5" data-column="1"></div></td><td><div class="cell-closed" data-row="5" data-column="2"></div></td><td><div class="cell-closed" data-row="5" data-column="3"></div></td><td><div class="cell-closed" data-row="5" data-column="4"></div></td><td><div class="cell-closed" data-row="5" data-column="5"></div></td><td><div class="cell-closed" data-row="5" data-column="6"></div></td><td><div class="cell-closed" data-row="5" data-column="7"></div></td><td><div class="cell-closed" data-row="5" data-column="8"></div></td><td><div class="cell-closed" data-row="5" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="6" data-column="0"></div></td><td><div class="cell-closed" data-row="6" data-column="1"></div></td><td><div class="cell-closed" data-row="6" data-column="2"></div></td><td><div class="cell-closed" data-row="6" data-column="3"></div></td><td><div class="cell-closed" data-row="6" data-column="4"></div></td><td><div class="cell-closed" data-row="6" data-column="5"></div></td><td><div class="cell-closed" data-row="6" data-column="6"></div></td><td><div class="cell-closed" data-row="6" data-column="7"></div></td><td><div class="cell-closed" data-row="6" data-column="8"></div></td><td><div class="cell-closed" data-row="6" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="7" data-column="0"></div></td><td><div class="cell-closed" data-row="7" data-column="1"></div></td><td><div class="cell-closed" data-row="7" data-column="2"></div></td><td><div class="cell-closed" data-row="7" data-column="3"></div></td><td><div class="cell-closed" data-row="7" data-column="4"></div></td><td><div class="cell-closed" data-row="7" data-column="5"></div></td><td><div class="cell-closed" data-row="7" data-column="6"></div></td><td><div class="cell-closed" data-row="7" data-column="7"></div></td><td><div class="cell-closed" data-row="7" data-column="8"></div></td><td><div class="cell-closed" data-row="7" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="8" data-column="0"></div></td><td><div class="cell-closed" data-row="8" data-column="1"></div></td><td><div class="cell-closed" data-row="8" data-column="2"></div></td><td><div class="cell-closed" data-row="8" data-column="3"></div></td><td><div class="cell-closed" data-row="8" data-column="4"></div></td><td><div class="cell-closed" data-row="8" data-column="5"></div></td><td><div class="cell-closed" data-row="8" data-column="6"></div></td><td><div class="cell-closed" data-row="8" data-column="7"></div></td><td><div class="cell-closed" data-row="8" data-column="8"></div></td><td><div class="cell-closed" data-row="8" data-column="9"></div></td></tr><tr><td><div class="cell-closed" data-row="9" data-column="0"></div></td><td><div class="cell-closed" data-row="9" data-column="1"></div></td><td><div class="cell-closed" data-row="9" data-column="2"></div></td><td><div class="cell-closed" data-row="9" data-column="3"></div></td><td><div class="cell-closed" data-row="9" data-column="4"></div></td><td><div class="cell-closed" data-row="9" data-column="5"></div></td><td><div class="cell-closed" data-row="9" data-column="6"></div></td><td><div class="cell-closed" data-row="9" data-column="7"></div></td><td><div class="cell-closed" data-row="9" data-column="8"></div></td><td><div class="cell-closed" data-row="9" data-column="9"></div></td></tr></tbody></table>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sapper.js"></script>
+</body>
+</html>
