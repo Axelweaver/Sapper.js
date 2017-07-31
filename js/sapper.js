@@ -52,7 +52,7 @@ function loadGame() {
     function getCell(ri, ci) {
         return $("table.sapper-table>tbody>tr>td>div[data-row='" + ri + "'][data-column='" + ci + "']");
     }
-    // получить массив с координатами ячейки
+
     function getCoord(cell) {
         var rowIndex = parseInt(cell.attr("data-row"));
         var columnIndex = parseInt(cell.attr("data-column"));
@@ -63,7 +63,7 @@ function loadGame() {
         var cell = getCell(ri, ci);
         return cell.hasClass("cell-closed") && cell.attr("data-flag") === undefined;
     }
-    // завершить игру
+
     function setGameOver() {
         gameOver = true;
         var table = $("table.sapper-table:first");
@@ -183,18 +183,24 @@ function loadGame() {
     }
 
     // создать бомбы
-    function createBombs() {
+    function createBombs(firstCell) {
         bombs = [];
         for (var i = 0; i < bombCount; i++) {
             var bomb = getBomb();
             // если бомба с такими координатами уже есть, то пересоздадим
-            while (checkBomb(bomb)) {
+            while (checkBomb(bomb) || bomb[0] === firstCell[0] && bomb[1] === firstCell[1]) {
                 bomb = getBomb();
             }
             bombs.push(bomb);
         }
     }
-
+    // первый клик
+    function firstClick(firstCell) {
+        if ($("table.sapper-table[data-timer]").length < 1) {
+            createBombs(firstCell);
+            startTimer();
+        }
+    }
     // Обновить время на таймере
     function updateTimer() {
         if (gameOver) {
@@ -213,6 +219,7 @@ function loadGame() {
     // Запустить таймер
     function startTimer() {
         seconds = 0;
+        gameOver = false;
         $("table.sapper-table").attr("data-timer", "true");
         updateTimer();
     }
@@ -226,8 +233,6 @@ function loadGame() {
         $(cell).unbind("mousedown", clickHandler);
     }
     function mousedownHandler(e) {
-        //e.cancelBubble = true;
-        //e.preventDefault();
         var cell = $(this);
         if (!cell.hasClass("cell-closed")) {
             return false;
@@ -237,23 +242,20 @@ function loadGame() {
             addFlag(coord[0], coord[1]);
             return false;
         }
-
         e.returnValue = false;
-        //return false;
     }
     // обработчик нажатия на ячейку
     function clickHandler(e) {
         e.preventDefault();
-        if ($("table.sapper-table[data-timer]").length < 1) {
-            startTimer();
-        }
         var cell = $(this);
+        var coord = getCoord(cell);
+        // проверка первого клика для создания бомб
+        firstClick(coord);
         // Если на ячейке стоит метка, то выйдем
         if (cell.attr("data-flag") === "true") {
             return;
         }
         // координаты ячейки
-        var coord = getCoord(cell);
         // проверим нажатую ячейку на существование бомбы в ней
         if (checkBomb(coord)) {
             // покажем все бомбы
@@ -261,7 +263,6 @@ function loadGame() {
         } else {
             // нарисуем цифру или очистим ячейки
             drawNumber(coord[0], coord[1]);
-            //clearAround(ri, ci);
         }
     }
     // Считаем количество оставшихся маркеров
@@ -293,7 +294,6 @@ function loadGame() {
     // Проверить все маркеры, что они были верно установлены
     function checkAllMarkers() {
         var all = true;
-        console.log($("table.sapper-table:first>tbody>tr>td>div[data-flag]").length);
         $("table.sapper-table:first>tbody>tr>td>div[data-flag]").each(function () {
             var cell = $(this);
             var coord = getCoord(cell);
@@ -302,7 +302,6 @@ function loadGame() {
                 return false;
             }
         });
-
         if (all) {
             displayWin();
         } else {
@@ -311,21 +310,18 @@ function loadGame() {
     }
     // создадим игровое поле, расставим индексы в ячейках и установим обработчики нажатия
     function createField() {
-        createBombs();
         var table = $("table.sapper-table:first");
         table.html("");
         seconds = 0;
         stopTimer();
         updateTimer();
         var tbody = document.createElement("tbody");
-
         for (var j = 0; j < rowsCount; j++) {
             var tr = document.createElement("tr");
             rowIndex = j;
             for (var k = 0; k < columnsCount; k++) {
                 var td = document.createElement("td");
                 var cell = document.createElement("div");
-
                 columnIndex = k;
                 $(cell).dblclick("dblclick", mousedownHandler);
                 $(cell).addClass("cell-closed")
@@ -374,13 +370,10 @@ function loadGame() {
                 .addClass("bombs-refresh")
                 .click(createField);
             $("div.panel.sapper-table:first>.panel-heading>.panel-title").append(spRfsh);
-
         }
-
     }
     createField();
 }
-
 function changeSizeHandler(e) {
     e.preventDefault();
     var button = $(this);
