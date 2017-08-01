@@ -233,20 +233,36 @@ function loadGame() {
         $(cell).unbind("mousedown", clickHandler);
     }
     function mousedownHandler(e) {
+        console.log("contextmenu");
         var cell = $(this);
         if (!cell.hasClass("cell-closed")) {
-            return false;
+            return;
         }
         var coord = getCoord(cell);
         if (e.button === 2) {
             addFlag(coord[0], coord[1]);
             return false;
         }
-        e.returnValue = false;
+    }
+
+    function mousedownleftHandler(e) {
+        console.log("mousedown");
+        if (e.button === 0) {
+            var cell = $(this);
+            cell.removeClass("cell-closed");
+        }
     }
     // обработчик нажатия на ячейку
     function clickHandler(e) {
-        e.preventDefault();
+        console.log("mouseup");
+        if (e.button === 2) {
+            e.contextmenu = false;
+            return false;
+        }
+        if (e.button !== 0) {
+            return true;
+        }
+        console.log("button=", e.button);
         var cell = $(this);
         var coord = getCoord(cell);
         // проверка первого клика для создания бомб
@@ -326,10 +342,10 @@ function loadGame() {
                 $(cell).dblclick("dblclick", mousedownHandler);
                 $(cell).addClass("cell-closed")
                     .attr("data-row", rowIndex)
-                    .attr("data-column", columnIndex)
-                    .click(clickHandler);
+                    .attr("data-column", columnIndex);
                 // Устанавливаем обработчик правой кнопки мыши
                 cell.oncontextmenu = mousedownHandler;
+                $(cell).mouseup(clickHandler);
                 td.appendChild(cell);
                 tr.appendChild(td);
             }

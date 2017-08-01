@@ -10,6 +10,7 @@ div.panel.sapper-table {
 }
 table.sapper-table {
     position: relative;
+    background-color: #ececec;
 }
 div.panel.sapper-table > .panel-body {
     border-left: solid 4px #bbb;
@@ -25,6 +26,7 @@ table.sapper-table > tbody > tr > td {
     height: 30px;
     width: 30px;
     cursor: pointer;
+    border: 1px solid #aaa;
 }
 table.sapper-table > tbody > tr > td.game-over {
     padding: 0;
@@ -41,12 +43,16 @@ table.sapper-table > tbody > tr > td.game-over {
     text-align: center;
 }
 table.sapper-table > tbody > tr > td > div.cell-closed {
-    margin-top: 3px;
-    margin-left: 3px;
+    margin-top: 2px;
+    margin-left: 2px;
     background-color: #f0f0f0;
-    width: 23px;
-    height: 23px;
-    box-shadow: 2px 2px 1px 2px #ccc, -1px 0px 1px 2px #fff;
+    width: 25px;
+    height: 25px;
+    box-shadow: 2px 2px 1px 2px #c0c0c0, -1px 0px 1px 1px #fff;
+    border-top: solid 2px #fff;
+    border-left: solid 2px #fff;
+    border-bottom: solid 2px #bfbfbf;
+    border-right: solid 2px #bfbfbf;
 }
 table.sapper-table > tbody > tr > td > div.cell-bomb {
     margin: -2px;
@@ -59,8 +65,8 @@ table.sapper-table > tbody > tr > td > div.cell-bomb {
     text-align: center;
 }
 table.sapper-table > tbody > tr > td > div[data-flag] {
-    font-size: 110%;
-    padding: 4px;
+    top: 0;
+    padding: 2px;
     text-align: center;
     color: #ff0000;
 }
@@ -101,7 +107,7 @@ div.panel.sapper-table > .panel-heading > .panel-title > span.timer {
 
 table.sapper-table > tbody > tr > td > div.cell-number {
     font-size: 110%;
-    padding-top: 4px;
+    padding-top: 7px;
     font-weight: bold;
     text-align: center;
 }
@@ -115,5 +121,11 @@ table.sapper-table > tbody > tr > td > div.cell-number.number3 {
     color: #ff0000;
 }
 table.sapper-table > tbody > tr > td > div.cell-number.number4 {
+    color:darkblue;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number5 {
+    color:brown;
+}
+table.sapper-table > tbody > tr > td > div.cell-number.number6 {
     color:purple;
 }
