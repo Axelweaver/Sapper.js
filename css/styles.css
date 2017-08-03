@@ -22,11 +22,18 @@ div.panel.sapper-table > .panel-body {
 
 table.sapper-table > tbody > tr > td {
     padding: 0;
+    margin: 0;
     line-height: 1;
     height: 30px;
     width: 30px;
-    cursor: pointer;
-    border: 1px solid #aaa;
+    border: 1px solid #aaa;    
+}
+table.sapper-table > tbody > tr > td > div {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    height: 26px;
+    width: 26px;
 }
 table.sapper-table > tbody > tr > td.game-over {
     padding: 0;
@@ -43,6 +50,7 @@ table.sapper-table > tbody > tr > td.game-over {
     text-align: center;
 }
 table.sapper-table > tbody > tr > td > div.cell-closed {
+    cursor: pointer;
     margin-top: 2px;
     margin-left: 2px;
     background-color: #f0f0f0;
@@ -108,6 +116,7 @@ div.panel.sapper-table > .panel-heading > .panel-title > span.timer {
 table.sapper-table > tbody > tr > td > div.cell-number {
     font-size: 110%;
     padding-top: 7px;
+    padding-left: 2px;
     font-weight: bold;
     text-align: center;
 }
