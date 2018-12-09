@@ -30,7 +30,7 @@ function loadGame() {
     var seconds = 0;
     // игра окончена
     var gameOver = false;
-    var width = columnsCount * 22 + 2;
+    var width = columnsCount * 30 + 2;
 
     $("div.panel.sapper-table:first").width(width);
     // использование Math.round() даст неравномерное распределение!
@@ -88,12 +88,12 @@ function loadGame() {
         var endRowIndex = ri === rowsCount - 1 ? rowsCount - 1 : ri + 1;
         var beginColumnIndex = ci === 0 ? 0 : ci - 1;
         var endColumnIndex = ci === columnsCount - 1 ? columnsCount - 1 : ci + 1;
-        for (var bri = beginRowIndex; bri <= endRowIndex; bri++) {
-            for (var bci = beginColumnIndex; bci <= endColumnIndex; bci++) {
+        for (let bri = beginRowIndex; bri <= endRowIndex; bri++) {
+            for (let bci = beginColumnIndex; bci <= endColumnIndex; bci++) {
                 if (ri === bri && ci === bci) {
                     continue;
                 }
-                funct(bri, bci);
+                setTimeout(() =>funct(bri, bci), 1);
             }
         }
     }
@@ -102,11 +102,11 @@ function loadGame() {
         lookAround(ri, ci, function (ri2, ci2) {
             var cell2 = getCell(ri2, ci2);
             if (checkCell(cell2)) {
-                clearCell(cell2);
+                    clearCell(cell2);
                 if (countBombsAround(ri2, ci2) === 0) {
-                    clearAround(cell2, ri2, ci2);
+                        clearAround(cell2, ri2, ci2);
                 } else {
-                    drawNumber(cell2, ri2, ci2);
+                        drawNumber(cell2, ri2, ci2);
                 }
             }
         });
@@ -123,10 +123,12 @@ function loadGame() {
         return count;
     }
     // нарисовать бомбу в ячейке
-    function drawBomb(ri, ci) {
+    function drawBomb(bomb) {
+        var ri = bomb[0];
+        var ci = bomb[1];
         var cell = getCell(ri, ci);
         clearCell(cell);
-        cell.removeClass("glyphicon-map-marker")
+        cell.removeClass("glyphicon-flag")
             .removeClass("cell-closed")
             .removeAttr("data-flag")
             .addClass("glyphicon")
@@ -136,7 +138,8 @@ function loadGame() {
     // Отобразить все бомбы
     function drawAllBombs() {
         for (var q = 0; q < bombs.length; q++) {
-            drawBomb(bombs[q][0], bombs[q][1]);
+            let bomb = bombs[q];
+            setTimeout(() => drawBomb(bomb), 1);
         }
         displayLose();
     }
@@ -175,14 +178,14 @@ function loadGame() {
     function addFlag(cell) {
         if (cell.attr("data-flag") === "true") {
             cell.removeClass("glyphicon")
-                .removeClass("glyphicon-map-marker")
+                .removeClass("glyphicon-flag")
                 .removeAttr("data-flag");
         } else {
             if (getCountNotMarkedBombs() <= 0) {
                 return false;
             }
             cell.addClass("glyphicon")
-                .addClass("glyphicon-map-marker")
+                .addClass("glyphicon-flag")
                 .attr("data-flag", "true");
         }
         displayCountBombs();
@@ -288,6 +291,10 @@ function loadGame() {
         console.log("mousedown");
         if (e.button === 0) {
             var cell = $(this);
+            // Если на ячейке стоит метка, то выйдем
+            if (cell.attr("data-flag") === "true") {
+                return;
+            }
             cell.removeClass("cell-closed");
             document.onmouseup = function () { cell.addClass("cell-closed"); };
         }
@@ -373,5 +380,5 @@ function loadGame() {
             $("div.panel.sapper-table:first>.panel-heading>.panel-title").append(spRfsh);
         }
     }
-    createField();
+    setTimeout(createField, 1);
 }
