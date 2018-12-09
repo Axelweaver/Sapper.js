@@ -9,9 +9,7 @@ function changeSizeHandler(e) {
     for (var i = 0; i < attrs.length; i++) {
         $("table.sapper-table:first").attr(attrs[i], button.attr(attrs[i]));
     }
-    var columns = parseInt(button.attr("data-columns-count"));
-    var width = columns * 30 + 2;
-    $("div.panel.sapper-table:first").width(width);
+
     loadGame();
 }
 
@@ -32,6 +30,9 @@ function loadGame() {
     var seconds = 0;
     // игра окончена
     var gameOver = false;
+    var width = columnsCount * 22 + 2;
+
+    $("div.panel.sapper-table:first").width(width);
     // использование Math.round() даст неравномерное распределение!
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -312,7 +313,7 @@ function loadGame() {
     function crtElm(tag) {
         return document.createElement(tag);
     }
-    // создадим игровое поле, расставим индексы в ячейках и установим обработчики нажатия
+    // создадим игровое поле, и установим обработчики нажатия
     function createField() {
         var table = $("table.sapper-table:first");
         table.html("");
